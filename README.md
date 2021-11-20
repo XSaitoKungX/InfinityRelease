@@ -41,7 +41,7 @@ WENN DU MEHR COMMANDS HINZUFÜGEN MÖCHTEST SUPPORT SERVER BEITRETEN 😆 </h3>
 </a> </div>
 
 <h3 align='center'> Bot support server </h3>
-<div align="center"> <a href="https://dsc.gg/infinity-support"><img src="https://img.shields.io/discord/787315610102530048?label=discord&logo=Discord&style=for-the-badge" alt="Discord server" /></a><div align="center">
+<div align="center"> <a href="https://dsc.gg/infinity-support"><img src="https://img.shields.io/discord/857622993702486067?label=discord&logo=Discord&style=for-the-badge" alt="Discord server" /></a><div align="center">
 
 <br><br>
 
