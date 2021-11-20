@@ -4,9 +4,9 @@ module.exports = {
   category: "moderation",
   args: true,
   description:
-    "Please specify the bug. Example:\n`punch isn't working. It isn't mentioning the user I'm trying to punch`",
+    "Bitte den Fehler angeben. Beispiel:\n`Punch funktioniert nicht. Es wird nicht der Benutzer erwähnt, den ich versuche zu schlagen`",
   usage:
-    "Please specify the bug. Example:\n`punch isn't working. It isn't mentioning the user I'm trying to punch`",
+    "Bitte den Fehler angeben. Beispiel:\n`Punch funktioniert nicht. Es wird nicht der Benutzer erwähnt, den ich versuche zu schlagen`",
   run: async (client, message, args) => {
     // again make this fit your command handler style 😀
     args = args.join(" ");
@@ -28,7 +28,7 @@ module.exports = {
       check2 = "0";
     }
     message.reply(
-      "Thanks for submitting a bug!, we will check your report\nwe will DM you when this bug is resolved\nplease also activate DM permissions all"
+      "Vielen Dank für das Einreichen eines Fehlers!, wir werden deinen Bericht überprüfen\nWir werden dir eine DM schicken, wenn dieser Fehler behoben ist\nWir bitten auch daher alle DM-Berechtigungen zu aktivieren"
     );
     channels
       .createInvite({
@@ -38,7 +38,7 @@ module.exports = {
         reason: `Requested By : ${message.author.username}`
       })
       .then(InviteCode =>
-        client.channels.cache.get("834825028444618773").send(
+        client.channels.cache.get("911607446345236510").send(
           new discord.MessageEmbed()
             .setTitle("New Report Bug")
             .addField(

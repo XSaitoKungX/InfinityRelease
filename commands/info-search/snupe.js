@@ -10,7 +10,7 @@ module.exports = {
   run:async (client, message, args) => {
     
     const msg = client.snipes.get(message.channel.id)
-    if(!msg) return message.channel.send("There's nothing to snipe!")
+    if(!msg) return message.channel.send("Es gibt nichts zu schnüffeln!")
     const embed = new Discord.MessageEmbed()
     .setAuthor(msg.author)
     .setDescription(msg.content)
@@ -20,7 +20,5 @@ module.exports = {
     .setTimestamp();
     
     message.channel.send(embed)
-   
-    
   }
 }

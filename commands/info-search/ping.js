@@ -2,6 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "ping",
+  aliases: ["p"],
   category: "info",
   description: "Returns latency and API ping",
   run: async (client, message, args) => {
@@ -9,7 +10,8 @@ module.exports = {
     let embed = new discord.MessageEmbed()
     .setDescription(`Pong - ${client.ws.ping}ms`)
     .setColor("RANDOM")
-    .setFooter(`Requested by ${message.author.username}`)
+    .setFooter(`Angefördert von: ${message.author.username}`)
+    .setTimestamp()
     
     message.channel.send(embed)
   }

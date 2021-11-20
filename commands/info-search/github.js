@@ -18,7 +18,7 @@ module.exports = {
     
   fetch(`https://api.github.com/users/${args.join('-')}`)
     .then(res => res.json()).then(body => {
-      if(body.message) return message.channel.send(`User Not Found | Please Give Me A Valid Username!`);
+      if(body.message) return message.channel.send(`Benutzer wurde nicht gefunden | Bitte gib mir einen gültigen Benutzernamen!`);
     let { login, avatar_url, name, id, html_url, public_repos, followers, following, location, created_at, bio } = body;
 
             const embed = new MessageEmbed()
@@ -40,8 +40,8 @@ module.exports = {
     })
 
         } catch (error) {
-            console.log(`[Commands] [github] Getting Error In github Command :\n`, error);
-            return message.channel.send(`Something Went Wrong Try Again Later!`)
+            console.log(`[Commands] [github] Fehler im github-Befehl erhalten :\n`, error);
+            return message.channel.send(`Etwas ist schief gelaufen. Versuche es später noch einmal!`)
         }
     }
 };

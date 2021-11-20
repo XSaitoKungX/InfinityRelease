@@ -2,8 +2,9 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "help",
+  aliases: ["h", "cmd", "commands"],
   description:
-    "Get list of all command and even get to know every command detials",
+    "Eine Liste aller Befehle nachgucken und vielleicht lernst du sogar alle Befehlsdetails kennst!",
   usage: "help <cmd>",
   category: "info",
   run: async (client, message, args) => {
@@ -17,10 +18,10 @@ module.exports = {
 
       let embed = new MessageEmbed()
         .setAuthor(command.name, client.user.displayAvatarURL())
-        .addField("> ❯ Description", command.description || "Not Provided :(")
-        .addField("> ❯ Usage", "`" + command.usage + "`" || "Not Provied")
+        .addField("> ❯ Description", command.description || "Nicht bereitgestellt :(")
+        .addField("> ❯ Usage", "`" + command.usage + "`" || "Nicht bereitgestellt")
         .setThumbnail(client.user.displayAvatarURL())
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setFooter(client.user.username, client.user.displayAvatarURL());
 
       return message.channel.send(embed);
@@ -29,16 +30,16 @@ module.exports = {
       const commands = await client.commands;
 
       let emx = new MessageEmbed()
-        .setDescription('**A fun and moderation bot with 150+ commnds and 10+ category ** \n**If u got any error do ** `qbug` **your bug must be 10 ltters **')
+        .setDescription('**Ein unterhaltsamer und moderierender Bot mit über 150 Befehlen und über 10 Kategorien ** \n**Wenn du einen Fehler hast, schreibst du ** `i!bug` **dein Fehler muss aus 10 Buchstaben bestehen **')
   
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setFooter(client.user.username, client.user.displayAvatarURL())
         
         .setThumbnail(client.user.displayAvatarURL());
           
       let com = {};
       for (let comm of commands.array()) {
-        let category = comm.category || "Unknown";
+        let category = comm.category || "Unbekannt";
         let name = comm.name;
 
         if (!com[category]) {
@@ -54,7 +55,7 @@ module.exports = {
 
         emx.addField(`${category.toUpperCase()}[${value.length}]`, desc);
       }
-     emx.addField('important links ','**:link:  [Support](https://dsc.gg/abotsupport)**  | **[website](https://automodbot.com)**')
+     emx.addField('Wichtige links ','**:link:  [Support](https://dsc.gg/infinity-support)**  | **[website](-)**')
       return message.channel.send(emx)
 
     }

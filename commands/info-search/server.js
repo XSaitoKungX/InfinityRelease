@@ -62,7 +62,7 @@ module.exports = {
 
   category: "info",
 
-  aliases: ["serverinfo"],
+  aliases: ["serv", "servi"],
 
   description: "Get info about your server.",
 
@@ -82,7 +82,7 @@ run: (client, message, args) => {
 
 			.setDescription(`**Guild information for __${message.guild.name}__**`)
 
-			.setColor('BLUE')
+			.setColor('RAMDOM')
 
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 

@@ -11,7 +11,7 @@ module.exports = {
         if (!search) return message.channel.send({
             embed: {
                 "color": 0x4D5E94,
-                "description": "❌ **What are you searching?**"
+                "description": "❌ **Was suchst du?**"
 
             }
         });
@@ -30,7 +30,7 @@ module.exports = {
                             "icon_url": "https://discord.js.org/favicon.ico"
                         },
                         "title": "Search results:",
-                        "description": "❌ **No results please try again.**"
+                        "description": "❌ **Keine Ergebnisse, bitte versuche es erneut.**"
                     }
                 });
                 body.color = 0x4D5E94;
@@ -38,7 +38,12 @@ module.exports = {
             })
             .catch(e => {
                 message.channel.send({
-                    embed: { "color": 0x4D5E94, "author": { "name": "Discord.js Docs (master)", "url": "https://discord.js.org/#/docs/main/master", "icon_url": "https://discord.js.org/favicon.ico" }, "title": "Search results:", "description": "No results." }
+                    embed: { "color": 0x4D5E94, "author": { 
+                        "name": "Discord.js Docs (master)", 
+                        "url": "https://discord.js.org/#/docs/main/master", 
+                        "icon_url": "https://discord.js.org/favicon.ico" }, 
+                        "title": "Search results:", 
+                        "description": "No results." }
                 });
             });
     }

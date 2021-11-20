@@ -4,11 +4,10 @@ const moment = require("moment")
 module.exports = {
   name: "userinfo",
   category: "info",
-  aliases: ["whois", "user"],
+  aliases: ["whois", "user", "uin"],
   usage: "userinfo <MENTION>",
   description: "Get advance stats of given person or yourself",
   run: async (client, message, args) => {
-
 
     let user;
 
@@ -16,15 +15,12 @@ module.exports = {
       user = message.member;
     } else {
 
-
-   
-
-
-      user = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(err => { return message.channel.send(":x: Unable to find this Person") })
+      user = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(err => 
+        { return message.channel.send(":x: | Diese Person kann nicht gefunden werden!") })
     }
 
     if (!user) {
-      return message.channel.send(":x: Unable to find this person!")
+      return message.channel.send(":x: | Diese Person kann nicht gefunden werden!")
     }
 
 
@@ -80,22 +76,14 @@ module.exports = {
 
       //CHECK IF USER HAVE NICKNAME
       if (user.nickname !== null) embed.addField("Nickname", user.nickname)
-      embed.addField("Joined At", moment(user.joinedAt).format("LLLL"))
-        .addField("Account Created At", moment(user.user.createdAt).format("LLLL"))
-        .addField("Common Information", `ID: \`${user.user.id}\`\nDiscriminator: ${user.user.discriminator}\nBot: ${user.user.bot}\nDeleted User: ${user.deleted}`)
+      embed.addField("Beigetreten am", moment(user.joinedAt).format("LLLL"))
+        .addField("Account erstellt am", moment(user.user.createdAt).format("LLLL"))
+        .addField("Allgemeine Informationen", `ID: \`${user.user.id}\`\nDiskriminator: ${user.user.discriminator}\nBot: ${user.user.bot}\nGelöschter Benutzer: ${user.deleted}`)
         .addField("Badges", newbadges.join(", ").toLowerCase() || "None")
         .setFooter(user.user.presence.status, stat[user.user.presence.status])
-
-
 
       return message.channel.send(embed).catch(err => {
         return message.channel.send("Error : " + err)
       })
-
-
-
     }
-
-
-
   }

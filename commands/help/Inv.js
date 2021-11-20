@@ -20,7 +20,7 @@ module.exports = {
                 {
                     style: 'url',
                     label: 'Vote for me!',
-                    url:'https://dsc.gg/automodbot'
+                    url:'https://dsc.gg/infinity.net'
                 }
             ]
         })

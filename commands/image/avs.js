@@ -10,13 +10,18 @@ module.exports = {
         accessableby: "everyone"
     ,
     run: async (bot, message, args) => {
-        if (!message.guild.me.hasPermission('ATTACH_FILES')) return message.channel.send("**Missing Permissions - [ATTACH_FILES]!**");
-        if (!args[0]) return message.channel.send("**Which User Would You Like To Be The Base?**");
-        if (!args[1]) return message.channel.send("**Which User Would You Like To Put Over The Base?**");
-        let base = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName === args[0].toLocaleLowerCase());
-        if (!base) return message.channel.send("**Base User Not Found!**");
-        let overlay = message.mentions.members.first(2)[1] || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[1].toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName === args[1].toLocaleLowerCase());
-        if (!overlay) return message.channel.send("**Overlay User Not Found!**");
+        if (!message.guild.me.hasPermission('ATTACH_FILES')) return message.channel.send("**Fehlende Berechtigungen - [ATTACH_FILES]!**");
+        if (!args[0]) return message.channel.send("**Welcher Benutzer möchtest du als Basis verwenden??**");
+        if (!args[1]) return message.channel.send("**Welchen Benutzer möchtest du über die Basis legen??**");
+        let base = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(
+            r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) 
+            || message.guild.members.cache.find
+            (r => r.displayName === args[0].toLocaleLowerCase());
+        if (!base) return message.channel.send("**Basisbenutzer nicht gefunden!**");
+        let overlay = message.mentions.members.first(2)[1] || message.guild.members.cache.get(args[1]) 
+        || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[1].toLocaleLowerCase()) 
+        || message.guild.members.cache.find(r => r.displayName === args[1].toLocaleLowerCase());
+        if (!overlay) return message.channel.send("**Overlay-Benutzer nicht gefunden!**");
         const baseAvatarURL = base.user.displayAvatarURL({ format: 'png', size: 512 });
         const overlayAvatarURL = overlay.user.displayAvatarURL({ format: 'png', size: 512 });
         try {
@@ -31,7 +36,7 @@ module.exports = {
             ctx.drawImage(overlayAvatar, 0, 0, baseAvatar.width, baseAvatar.height);
             return message.channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'avatarfusion.png' }] });
         } catch (err) {
-            return message.channel.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
+            return message.channel.send(`Oh nein, es ist ein Fehler aufgetreten: \`${err.message}\`. Versuche es später nochmal!`);
         };
     }
 };

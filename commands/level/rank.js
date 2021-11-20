@@ -5,6 +5,7 @@ const Levels = require('discord-xp')
 const {MessageAttachment} = require('discord.js')
 module.exports = {
     name: 'rank',
+    aliases: ["level", "lvl"],
     category: "level[beta]",
     run: async (client, message, args) => {
         const userData = await Levels.fetch(message.author.id, message.guild.id)

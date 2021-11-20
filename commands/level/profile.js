@@ -5,15 +5,17 @@ const Canvas = require('canvas');
     const canvas = Canvas.createCanvas(867, 892);
     const ctx = canvas.getContext('2d');
     module.exports = {
-  name: "lb",
-  description: "get chat Level", category: "level[beta]",
+  name: "leaderboard",
+  aliases: ["lb"],
+  description: "get chat Level", 
+  category: "level[beta]",
    // users will need premium to execute this
   run: async (bot, message, args) => {
 
        
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
-    if (rawLeaderboard.length < 1) return message.channel.send("Nobody's in leaderboard yet.");
+    if (rawLeaderboard.length < 1) return message.channel.send("Noch ist niemand in der Leaderboard!");
 
     const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 

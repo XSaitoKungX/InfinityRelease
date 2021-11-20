@@ -8,9 +8,9 @@ module.exports = {
     
     let embed = new discord.MessageEmbed()
     .setTitle(`HERE INVITE LINK OF BOT`)
-    .setDescription(`<:CPTNLINK:830835407343714325>  [CLICK HERE](https://discord.com/api/oauth2/authorize?client_id=744597377406599188&permissions=8&scope=bot) OR [support server ](https://dsc.gg/cwkhan)`)
+    .setDescription(`[CLICK HERE](https://dsc.gg/infinity.net) OR [Support Server ](https://dsc.gg/infinity-support)`)
     .setColor("RANDOM")
-    .setFooter(`made by cw khan `)
+    .setFooter(`Erstellt mit ❤ von XSaitoKungX `)
     .setTimestamp(message.timestamp = Date.now())
     
     message.channel .send(embed)

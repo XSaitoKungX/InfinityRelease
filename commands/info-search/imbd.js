@@ -9,7 +9,7 @@ name: "imdb",
   run: async (client, message, args, color) => {
     
     if(!args.length) {
-      return message.channel.send("Please give the name of movie or series")
+      return message.channel.send("Bitte gib den Namen des Films oder der Serie an")
     }
     
     const imob = new imdb.Client({apiKey: "5e36f0db"}) //You need to paste you imdb api

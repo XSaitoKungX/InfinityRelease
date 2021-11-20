@@ -1,8 +1,5 @@
 const Discord = require('discord.js');
 
-
-
-
 module.exports = {
   
         name:"invites",
@@ -19,7 +16,7 @@ module.exports = {
             let memberInvites = invites.filter(i => i.inviter && i.inviter.id === member.user.id);
 
             if (memberInvites.size <= 0) {
-                return message.channel.send(`**${member.displayName} didn't invite anyone to the server!**`, (member === message.member ? null : member));
+                return message.channel.send(`**${member.displayName} hat niemanden auf den Server eingeladen!**`, (member === message.member ? null : member));
   {}          }
 
             let content = memberInvites.map(i => i.code).join("\n");
@@ -31,8 +28,8 @@ module.exports = {
                 .setFooter(message.guild.name, message.guild.iconURL())
                 .setAuthor(`Invite Tracker for ${message.guild.name}`)
                 .setDescription(`Information on Invites of ${member.displayName}`)
-                .addField("**No. Invited Persons**", index)
-                .addField("Invitation Codes\n\n", content);
+                .addField("**Nr. Eingeladene Personen**", index)
+                .addField("Einladungscodes\n\n", content);
             message.channel.send(embed);
         } catch (e) {
             return message.channel.send(e.message)
