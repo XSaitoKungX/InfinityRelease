@@ -27,8 +27,8 @@ Id 848917797501141052 </h1>
 <h3> EIN SPASS UND MODERATION BOT MIT 150+ BEFEHLEN
 WENN DU MEHR COMMANDS HINZUFÜGEN MÖCHTEST SUPPORT SERVER BEITRETEN 😆 </h3>
 <div align="center"> <a href="https://top.gg/bot/744597377406599188">
-<img src="https://top.gg/api/widget/744597377406599188.svg"/>
- </a> </div>
+<!-- <img src="https://top.gg/api/widget/744597377406599188.svg"/></a>  -->
+</div>
 
 **[SUPPORT SERVER](https://dsc.gg/infinity-support)**||
 
@@ -62,7 +62,7 @@ WENN DU MEHR COMMANDS HINZUFÜGEN MÖCHTEST SUPPORT SERVER BEITRETEN 😆 </h3>
 
 <!-- ###  Full setup [here](https://youtu.be/IX4DZq7iVf4)  -->
 
-<!-- ### How to host watch' video  Watch it by clicking [here](https://youtu.be/NlCufWQUL54) -->
+### How to host watch' video  Watch it by clicking [here](https://youtu.be/NlCufWQUL54)
 
 <h3  align='center'>Wenn du einen Fehler hast oder eine funktionierende Version wünschst, dann trete unserem Discord-Server bei</h3>
 
