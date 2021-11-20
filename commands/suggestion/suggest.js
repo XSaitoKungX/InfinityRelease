@@ -12,7 +12,7 @@ module.exports = {
     if (channel === null) return;
   
   const suggestionQuery = args.join(" ");
-  if(!suggestionQuery) return message.reply("Please Suggest Something.");
+  if(!suggestionQuery) return message.reply("Bitte schlag etwas vor.");
     
   const embed = new MessageEmbed()
          
@@ -23,7 +23,7 @@ module.exports = {
        .setTimestamp();
        
     const done = new MessageEmbed()
-       .setDescription(`<:bfdyes:832931453892558848>  | Your suggestion is Submitted here, <#${channel}>\n\nNote: You agreed to get a DM on a reply over your Suggestion!`)
+       .setDescription(`<:bfdyes:832931453892558848>  | Dein Vorschlag wird hier eingereicht, <#${channel}>\n\nNote: Du hast zugestimmt, eine DM auf eine Antwort auf deinen Vorschlag zu erhalten!`)
        .setColor("00FFFF")
        
     message.channel.send(done)

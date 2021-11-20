@@ -9,7 +9,7 @@ module.exports = {
     permissions: "MANAGE_CHANNELS",
    run: async(client, message, args) => {
    if (!message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
-   return message.channel.send("You don't have enough Permissions")
+   return message.channel.send("Du hast keine Berechtigungen!")
    }
    message.channel.overwritePermissions([
      {
@@ -19,7 +19,7 @@ module.exports = {
     ],);
    const embed = new Discord.MessageEmbed()
    .setTitle("Channel Updates")
-   .setDescription(`🔓 ${message.channel}  has been Unlocked`)
+   .setDescription(`🔓 ${message.channel}  wurde freigeschaltet`)
    .setColor("RANDOM");
    await message.channel.send(embed);
    message.delete();

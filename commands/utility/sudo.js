@@ -8,12 +8,12 @@ module.exports = {
   botpermission: ["MANAGE_WEBHOOKS"],
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_WEBHOOKS")) {
-            return message.channel.send(`You Don't Have Permission To Use This Command! Manage webhook`)}
+            return message.channel.send(`Du bist nicht berechtigt, diesen Befehl zu verwenden! Webhook verwalten`)}
     message.delete();
     let user =
       message.mentions.members.first() ||
       message.guild.members.cache.get(args[0]);
-    if (!user) return message.channel.send("Please provide a user!");
+    if (!user) return message.channel.send("Bitte gib einen Benutzer an!");
     const webhook = await message.channel.createWebhook(user.displayName, {
       avatar: user.user.displayAvatarURL(),
       channel: message.channel.id

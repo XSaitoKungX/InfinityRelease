@@ -9,10 +9,10 @@ module.exports = {
         const voice_channel = message.member.voice.channel;
         const embed = new MessageEmbed()
         .setColor('#FF5757')
-        .setDescription(`You need to be in a vc to execute this command!`)
+        .setDescription(`Du musst dich in einem VC befinden, um diesen Befehl auszuführen!`)
         const embed1 = new MessageEmbed()
-        .setColor('#85b0d2')
-        .setDescription('Queue was cleared!')
+        .setColor('RANDOM')
+        .setDescription('Warteschlange wurde gelöscht!')
         if (!voice_channel) return message.channel.send(embed);
         let isDone = client.player.clearQueue(message);
         if(isDone)

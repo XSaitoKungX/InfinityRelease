@@ -34,7 +34,7 @@ module.exports = {
       dis = client.users.cache.filter(user => user.discriminator === message.author.discriminator).map(user => user.discriminator);
     }
 
-    if (!discrims.length) return message.reply("I can't find users with that discriminator");
+    if (!discrims.length) return message.reply("Ich kann keine Benutzer mit diesem Diskriminator finden");
 
     if (discrims[0]) {
       content = `\`#1\` - **${discrims[0]}**`
@@ -91,7 +91,7 @@ module.exports = {
       message.channel.send(embed);
     })
   .catch(e => {
-         message.channel.send(`Error, try again later`)
+         message.channel.send(`Error, versuche es später noch einmal`)
    });
       
   }

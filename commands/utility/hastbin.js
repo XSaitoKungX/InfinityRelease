@@ -16,8 +16,8 @@ module.exports = {
       .create([
         {
           title: "JavaScript code",
-          description: 'This code was created in "' + message.createdAt + '"',
-          name: "Made By " + message.author.username,
+          description: 'Dieser Code wurde erstellt in "' + message.createdAt + '"',
+          name: "Hergestellt von " + message.author.username,
           content: Content,
           languageId: "JavaScript"
         }
@@ -30,7 +30,7 @@ module.exports = {
         message.channel.send(embed);
       })
       .catch(e => {
-        message.channel.send(`Error, try again later`);
+        message.channel.send(`Error, versuche es später noch einmal`);
       });
   }
 };

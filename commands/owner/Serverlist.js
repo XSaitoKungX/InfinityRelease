@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const ownerid = "682981714523586606";
+const ownerid = "857623917304348682";
 
 module.exports = {
     name: "serverlist",
@@ -12,7 +12,7 @@ module.exports = {
     if (message.author.id == ownerid) {
       if (!message.guild.me.hasPermission("ADMINISTRATOR"))
         return message.channel
-          .send("I Dont Have Permissions")
+          .send("Ich habe leider keine Berechtigung!")
           .then(msg => msg.delete({ timeout: 5000 }));
 
       let i0 = 0;

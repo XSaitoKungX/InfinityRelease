@@ -9,15 +9,15 @@ module.exports = {
             const voice_channel = message.member.voice.channel;
             const embed = new MessageEmbed()
             .setColor('#FF5757')
-            .setDescription(`You need to be in a vc to execute this command!`)
+            .setDescription(`Du musst dich in einem VC befinden, um diesen Befehl auszuführen!`)
             if(!client.player.isPlaying(message)) {
-			message.channel.send('Unknow Radio must be playing in order to skip the track');
+			message.channel.send('Musik muss abgespielt werden, um den Titel zu überspringen');
 
 			return;
 		}
 
 		await client.player.skip(message);
 
-		message.channel.send('Skipped');
+		message.channel.send(embed);
 	},
 };

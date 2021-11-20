@@ -10,8 +10,8 @@ module.exports = {
 let prefix = "q"
  try { 
  
-   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You don't have **MANAGE_MESSAGES** premssions to use this command.");
-  if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.reply("I don't have **MANAGE_MESSAGES** permissions to use this command.");
+   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Du hast keine **MANAGE_MESSAGES**-Permissions, um diesen Befehl auszuführen!");
+  if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.reply("Ich habe keine **MANAGE_MESSAGES**-Permissions, um diesen Befehl auszuführen!");
 
 const commands = [
 `bots\` - Delete messages sent by bots. (Ignore humans)`, 
@@ -30,8 +30,8 @@ const commands = [
 const embd = new Discord.MessageEmbed() 
 .setColor("BLUE") 
 .setTitle("Purge | Clear | Delete | Prune") 
-.setDescription(`Delete a number of messages from a channel. (Ignores the pinned messages and limit is 100)`) 
-.addField("Usage", `\`${prefix}purge <amount>\` - Delete a number of messages.\n\`${prefix}purge <amount> --${commands.join(`\n\`${prefix}purge <amount> --`)}`) 
+.setDescription(`Mehrere Nachrichten aus einem Kanal löschen. (Ignoriert die angehefteten Nachrichten und das Limit beträgt 100)`) 
+.addField("Usage", `\`${prefix}purge <amount>\` - Mehrere Nachrichten löschen.\n\`${prefix}purge <amount> --${commands.join(`\n\`${prefix}purge <amount> --`)}`) 
 .setFooter(`${prefix}purge, ${prefix}clear, ${prefix}delete, ${prefix}prune`) 
 
 
@@ -39,8 +39,8 @@ const embd = new Discord.MessageEmbed()
 
 if(!args[0] || !args.length) return message.channel.send(embd);
 let amount = Number(args[0],10) || parseInt(args[0]);
-if(isNaN(amount) || !Number.isInteger(amount)) return message.channel.send("Please enter a number of messages to purge.");
-if(!amount || amount < 2 || amount > 100) return message.channel.send("Please enter a number of message between 2 and 100.")
+if(isNaN(amount) || !Number.isInteger(amount)) return message.channel.send("Bitte gib die Anzahl von Nachrichten ein, die gelöscht werden sollen.");
+if(!amount || amount < 2 || amount > 100) return message.channel.send("Bitte gib eine Nachrichtennummer zwischen 2 und 100 ein.")
 if(!args[1]) {
 
 try {
@@ -49,14 +49,14 @@ await message.channel.bulkDelete(amount).then(async (m) => {
   
    let embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:4000})); 
 })
 
    } catch (e) { 
      console.log(e) 
-     message.channel.send(`You can only delete the messages which are not older than 14 days.`)
+     message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`)
      
 
    }
@@ -79,14 +79,14 @@ await message.channel.bulkDelete(amount).then(async (m) => {
       
       embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -103,14 +103,14 @@ await message.channel.bulkDelete(amount).then(async (m) => {
       
       embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -127,14 +127,14 @@ case "--embeds":
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -151,14 +151,14 @@ case "--files":
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;case "--text":
@@ -174,14 +174,14 @@ case "--files":
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -198,14 +198,14 @@ case "--files":
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -222,14 +222,14 @@ case "--pins":
       
       embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -248,14 +248,14 @@ if(!args[2]) return message.channel.send(embd);
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -273,14 +273,14 @@ if(!args[2]) return message.channel.send(embd);
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -298,14 +298,14 @@ if(!args[2]) return message.channel.send(embd);
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -323,14 +323,14 @@ if(!args[2]) return message.channel.send(embd);
       
        embed = new Discord.MessageEmbed()
   .setColor('0x#00ffff')
-  .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`);
+  .setDescription(`✅ | Gelöscht - **${m.size}**/**${amount}** Messages!`);
 
    message.channel.send(embed).then(msg => msg.delete({timeout:50000})); 
       })
       
    } catch (e) { 
      console.log(e)
-   message.channel.send(`You can only delete the messages which are not older than 14 days.`) 
+   message.channel.send(`Du kannst nur Nachrichten löschen, die nicht älter als 14 Tage sind.`) 
    }
 
       break;
@@ -340,11 +340,11 @@ break;
 }
 
 } else {
- return message.channel.send(`An error occoured.`)
+ return message.channel.send(`Ein Fehler ist aufgetreten.`)
 }
 } catch (error) {
   console.log(error)
-  message.channel.send(`An error occurred: \`${error}\``)
+  message.channel.send(`Ein Fehler ist aufgetreten: \`${error}\``)
 }
 
 

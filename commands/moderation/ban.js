@@ -11,24 +11,26 @@ module.exports = {
     
     const reason = args.slice(1).join(" ")
     
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply(`You don't have enough powers to ban someone`)
+    if(!message.member.hasPermission("BAN_MEMBERS")) 
+    return message.reply(`Du hast keine Rechte, um jemanden zu bannen!`)
     
-    if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply(`I don't have powers to ban someone`)
+    if(!message.guild.me.hasPermission("BAN_MEMBERS")) 
+    return message.reply(`Ich habe keine Rechte, jemanden zu bannen!`)
     
-    if(!args[0]) return message.reply(`Please mention someone to ban`)
+    if(!args[0]) return message.reply(`Bitte erwähne jemanden, den du bannen möchtest`)
     
-    if(!target) return message.reply(`I can't find that member`)
+    if(!target) return message.reply(`Ich kann dieses Mitglied nicht finden!`)
     
     if(target.roles.highest.position >= message.member.roles.highest.position || message.author.id !== message.guild.owner.id) {
-      return message.reply(`They have more power than you`)
+      return message.reply(`Der Benutzer hat leider mehr Rechte als du!`)
     }
     
-    if(target.id === message.author.id) return message.reply(`I can't ban you as you are the Boss`)
+    if(target.id === message.author.id) return message.reply(`Ich kann dich nicht bannen, da du der Owner bist! :pleading_face:`)
     
     if(target.bannable) {
       let embed = new discord.MessageEmbed()
       .setColor("RANDOM")
-      .setDescription(`Banned \`${target}\` for \`${reason || "No Reason Provided"}\``)
+      .setDescription(`Gebannter User: \`${target}\` Grund: \`${reason || "Keine Begründung angegeben"}\``)
       
       message.channel.send(embed)
       
@@ -37,7 +39,7 @@ module.exports = {
       message.delete()
       
     } else {
-      return message.reply(`I can't ban them, make sure that my role is above of theirs`)
+      return message.reply(`Ich kann dieser User nicht bannen, stelle sicher, dass meine Rolle über seiner/ ihrer steht!`)
     }
     return undefined
   }

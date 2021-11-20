@@ -9,7 +9,7 @@ module.exports = {
   run: async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
-        "You should have admin perms to use this command!"
+        "Du solltest über Administratorrechte verfügen, um diesen Befehl zu verwenden!"
       );
     }
 
@@ -17,21 +17,21 @@ module.exports = {
 
     if (!user) {
       return message.channel.send(
-        "Please Mention the person to who you want to warn - warn @mention <reaosn>"
+        "Bitte erwähne die Person, die du warnen möchtest - warn @mention <reason>"
       );
     }
 
     if (message.mentions.users.first().bot) {
-      return message.channel.send("You can not warn bots");
+      return message.channel.send("Du kannst Bots nicht warnen!");
     }
 
     if (message.author.id === user.id) {
-      return message.channel.send("You can not warn yourself");
+      return message.channel.send("Du kannst dich selbst nicht warnen!");
     }
 
     if (user.id === message.guild.owner.id) {
       return message.channel.send(
-        "You jerk, how you can warn server owner -_-"
+        "Du wichser, wie kann man den Serverbesitzer warnen?? -_-"
       );
     }
 
@@ -39,7 +39,7 @@ module.exports = {
 
     if (!reason) {
       return message.channel.send(
-        "Please provide reason to warn - warn @mention <reason>"
+        "Bitte gib einen Grund zur Warnung an - warn @mention <reason>"
       );
     }
 
@@ -48,7 +48,7 @@ module.exports = {
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
       user.send(
-        `You have been warned in **${message.guild.name}** for ${reason}`
+        `Du wurdest gewarnt in **${message.guild.name}**! Grund: ${reason}`
       );
       await message.channel.send(
         `You warned **${
@@ -59,7 +59,7 @@ module.exports = {
       
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
       
-      user.send(`You have been warned in **${message.guild.name}** for ${reason}`);
+      user.send(`Du wurdest gewarnt in **${message.guild.name}**! Grund: ${reason}`);
       
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`);
       

@@ -6,10 +6,10 @@ category: "owner",
 aliases: ["detail"],
 run: async (client, message, args, level) => {
 //command
-  if(message.author.id != 682981714523586606){
+  if(message.author.id != 857623917304348682){
     const noperms = new MessageEmbed()
-    .setDescription("<:astroz_wrong:825598313499459605> This Command Only Use By My Owner **Cwkhan ")
-    .setColor("YELLOW");
+    .setDescription("<:astroz_wrong:825598313499459605> Dieser Befehl wird nur von meinem Besitzer verwendet **Saito ")
+    .setColor("RANDOM");
     return message.channel.send(noperms)
   } 
 
@@ -53,7 +53,7 @@ let embed = new MessageEmbed()
   .setFooter("Thx For Choosing automodbot")  
 
 return message.channel.send(embed);
-    return message.react("<:astroz_correct:825597747800309770>");
+return message.react("<:astroz_correct:825597747800309770>");
 }
 };
 

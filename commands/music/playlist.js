@@ -9,7 +9,7 @@ module.exports = {
         const voice_channel = message.member.voice.channel;
         const embed = new MessageEmbed()
             .setColor('#FF5757')
-            .setDescription(`You need to be in a vc to execute this command!`)
+            .setDescription(`Du musst dich in einem VC befinden, um diesen Befehl auszuführen!`)
         if (!voice_channel) return message.channel.send(embed);
         // If maxSongs is -1, will be infinite.
         await client.player.playlist(message, {

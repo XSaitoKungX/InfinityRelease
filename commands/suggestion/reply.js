@@ -4,6 +4,7 @@ const db = require("quick.db");
 
 module.exports = {
   name: "sreply",
+  aliases: ["srly"],
   category: "suggestion",
   run: async (client, message, args) => {
     
@@ -18,27 +19,27 @@ if (channel === null) return;
     const replyQuery = args.slice(1).join(' ');
       
     const number = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>    | I don't think that was a Message ID!`)
+      .setDescription(`<:bfdno:832931445991276584>    | Ich glaube nicht, dass das eine Message-ID war!`)
       .setColor("FF2052")
       
     const id = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>  |You forgot to specify Message ID!`)
+      .setDescription(`<:bfdno:832931445991276584>  | Du hast vergessen, die Nachrichten-ID anzugeben!`)
       .setColor("FF2052")
       
     const query = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | You forgot to specify the Reply!`)
+      .setDescription(`<:bfdno:832931445991276584>   | Du hast vergessen, die Antwort anzugeben!`)
       .setColor("FF2052")
       
     const reply = new MessageEmbed()
-      .setDescription(`<:bfdyes:832931453892558848>  | Successfully Replied the Suggestion.`)
+      .setDescription(`<:bfdyes:832931453892558848>  | Der Vorschlag wurde erfolgreich beantwortet.`)
       .setColor("00FFFF")
       
     const noChannel = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | No Suggestion Channel found!`)
+      .setDescription(`<:bfdno:832931445991276584>   | Kein Vorschlagskanal gefunden!`)
       .setColor("FF2052")
       
     const noMessage = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Didn't find any Message with that ID!`)
+      .setDescription(`<:bfdno:832931445991276584>   | Keine Nachricht mit dieser ID gefunden!`)
       .setColor("FF2052")
     
       if(!messageID) return message.channel.send(id);
@@ -54,7 +55,7 @@ if (channel === null) return;
       
       const suggestedEmbed = await suggestionChannel.messages.fetch(messageID).catch(error => {
     const noMessage = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Didn't find any Message with that ID!`)
+      .setDescription(`<:bfdno:832931445991276584>   | Keine Nachricht mit dieser ID gefunden!`)
       .setColor("FF2052")
   return message.channel.send(noMessage);
   })
@@ -76,7 +77,9 @@ if (channel === null) return;
       const user = await client.users.cache.find((u) => u.tag === data.author.name)
       
     const embed = new MessageEmbed()
-      .setDescription(`You have got a Reply over your Suggestion <:bfdyes:832931453892558848> . **[Message Link](https://discord.com/channels/${message.guild.id}/${channel}/${messageID})**`)
+      .setDescription(
+        `Du hast eine Antwort auf deinen Vorschlag erhalten <:bfdyes:832931453892558848> . 
+        **[Message Link](https://discord.com/channels/${message.guild.id}/${channel}/${messageID})**`)
       .setColor("BLUE")
       user.send(embed)
         

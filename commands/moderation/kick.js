@@ -11,11 +11,11 @@ clientPerms: ["KICK_MEMBERS"],
 run: async(client, message, args) => {  
 const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 const reason = args.slice(1).join(" ")
-          if (!args[0]) return message.channel.send(":x: | **Specify someone to kick.**")
-        if (!mentionedMember) return message.channel.send(":x: | **I can't find that member.**")
-        if (mentionedMember.id === message.author.id) return message.channel.send(":x: | You can't kick yourself.")
+          if (!args[0]) return message.channel.send(":x: | **Gib jemanden zum Kicken an.**")
+        if (!mentionedMember) return message.channel.send(":x: | **Ich kann dieses Mitglied nicht finden.**")
+        if (mentionedMember.id === message.author.id) return message.channel.send(":x: | Du kannst dich nicht selbst kicken.")
         if (mentionedMember.roles.highest.position >= message.member.roles.highest.position && message.author.id !== message.guild.owner.id) {
-            return message.channel.send(":x: | **You can\'t kick this member due to your role being lower than that member role.**")
+            return message.channel.send(":x: | **Du kannst dieses Mitglied nicht kicken, da deine Rolle niedriger ist als diese Mitgliedsrolle!**")
         }
         if (mentionedMember.kickable) {
             const embed = new MessageEmbed()
@@ -24,12 +24,12 @@ const reason = args.slice(1).join(" ")
             .setColor(`RANDOM`)
             .setDescription(`
 **Member:** ${mentionedMember.user.username} - (${mentionedMember.user.id})
-**Reason:** ${reason || "None"}
+**Reason:** ${reason || "Keine Begründung vorhandeln"}
             `)
         message.channel.send(embed)
         mentionedMember.kick()
         } else {
-            return message.channel.send(":x: | **I can\'t kick this user make sure that the users role is lower than my role.**")
+            return message.channel.send(":x: | **Ich kann diesen Benutzer nicht kicken. Stelle sicher, dass die Benutzerrolle niedriger ist als meine Rolle!**")
         }
         return undefined
     let channel = db.fetch(`modlog_${message.guild.id}`)

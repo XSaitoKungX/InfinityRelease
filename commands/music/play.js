@@ -4,12 +4,12 @@ module.exports = {
     name: 'play',
     aliases: ['p'], // Optional
     category: 'Music',
-    description: 'Play a song in the vc', 
+    description: 'Musik in VC abspielen', 
     run: async (client, message, args) => {
         const voice_channel = message.member.voice.channel;
         const embed = new MessageEmbed()
             .setColor('#FF5757')
-            .setDescription(`You need to be in a vc to execute this command!`)
+            .setDescription(`Du musst dich in einem VC befinden, um diesen Befehl auszuführen!`)
         if (!voice_channel) return message.channel.send(embed);
 
         if(client.player.isPlaying(message)) {
@@ -17,7 +17,7 @@ module.exports = {
 
             const added = new MessageEmbed()
             .setColor('#85b0d2')
-            .setDescription(`Added **${song.name}** to the queue`)
+            .setDescription(`Musik: **${song.name}** in der Warteschlange hinzugefügt`)
 
 
             // If there were no errors the Player#songAdd event will fire and the song will not be null.
@@ -29,7 +29,7 @@ module.exports = {
 
             const started = new MessageEmbed()
             .setColor('#85b0d2')
-            .setDescription(`Started playing **${song.name}**`)
+            .setDescription(`Anfangen **${song.name}** zu spielen`)
 
             // If there were no errors the Player#songAdd event will fire and the song will not be null.
             if(song)

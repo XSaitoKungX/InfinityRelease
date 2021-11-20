@@ -7,18 +7,24 @@ module.exports = {
         description: "Sets Or Changes Nickname Of An User",
         usage: "[mention | name | nickname | ID] <nickname>",
   run: async (bot, message, args) => {
-        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permissions To Change Nickname! - [MANAGE_GUILD]**");
+        if (!message.member.hasPermission("MANAGE_GUILD")) 
+        return message.channel.send("**Du hast keine Berechtigung, den Spitznamen zu ändern! - [MANAGE_GUILD]**");
 
-        if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("**I Dont Have Permissions To Change Nickname! - [CHANGE_NICKNAME]**");
+        if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) 
+        return message.channel.send("**Ich habe keine Berechtigung, den Spitznamen zu ändern! - [CHANGE_NICKNAME]**");
       
-        if (!args[0]) return message.channel.send("**Please Enter A User!**")
+        if (!args[0]) return message.channel.send("**Bitte gib einen Benutzer ein!**")
       
-        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
-        if (!member) return message.channel.send("**Please Enter A Username!**");
+        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) 
+        || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) 
+        || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) 
+        || message.member;
+        if (!member) return message.channel.send("**Bitte gib einen Benutzernamen ein!**");
 
-        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Set or Change Nickname Of This User!**')
+        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) 
+        return message.channel.send('**Der Spitzname dieses Benutzers kann nicht festgelegt oder geändert werden!**')
 
-        if (!args[1]) return message.channel.send("**Please Enter A Nickname**");
+        if (!args[1]) return message.channel.send("**Bitte gib einen Spitznamen ein**");
 
         let nick = args.slice(1).join(' ');
 
@@ -26,10 +32,10 @@ module.exports = {
         member.setNickname(nick)
         const embed = new MessageEmbed()
             .setColor("GREEN")
-            .setDescription(`**Changed Nickname of ${member.displayName} to ${nick}**`)
+            .setDescription(`**Geänderter Spitzname von ${member.displayName} zu ${nick} geändert**`)
         message.channel.send(embed)
         } catch {
-            return message.channel.send("**Missing Permissions - [CHANGE_NICKNAME]")
+            return message.channel.send("**Fehlende Berechtigungen - [CHANGE_NICKNAME]")
         }
 
         let channel = db.fetch(`modlog_${message.guild.id}`)
@@ -41,9 +47,9 @@ module.exports = {
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
             .setFooter(message.guild.name, message.guild.iconURL())
             .addField("**Moderation**", "setnick")
-            .addField("**Nick Changed Of**", member.user.username)
-            .addField("**Nick Changed By**", message.author.username)
-            .addField("**Nick Changed To**", args[1])
+            .addField("**Nick geändert von**", member.user.username)
+            .addField("**Nick geändert Von**", message.author.username)
+            .addField("**Nick geändert zu**", args[1])
             .addField("**Date**", message.createdAt.toLocaleString())
             .setTimestamp();
 

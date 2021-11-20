@@ -1,17 +1,17 @@
-const ownerid = "682981714523586606";
+const ownerid = "857623917304348682";
 
 module.exports = {
         name: "getinvite",
         aliases: ['getinv', 'gi'],
         category: "owner",
-        description: "Generates an invitation to  server in question.",
+        description: "Erzeugt eine Einladung an den betreffenden Server.",
         usage: "[ID | name]",
       
     run: async(bot, message, args) => {
         if (message.author.id === ownerid) {
         let guild = null;
 
-        if (!args[0]) return message.channel.send("Enter Guild Name or Guild ID of where you want Invite Link.")
+        if (!args[0]) return message.channel.send("Gib den Servernamen oder die Server-ID des gewünschten Einladungslinks ein.")
 
         if(args[0]){
             let fetched = bot.guilds.cache.find(g => g.name === args.join(" "));
@@ -24,19 +24,20 @@ module.exports = {
                 guild = found
             }
         } else {
-            return message.channel.send("That's the Invalid Guild Name");
+            return message.channel.send("Das ist der ungültige Servername");
         }
         if(guild){
-            let tChannel = guild.channels.cache.find(ch => ch.type == "text" && ch.permissionsFor(ch.guild.me).has("CREATE_INSTANT_INVITE"));
+            let tChannel = guild.channels.cache.find(ch => ch.type == "text" 
+            && ch.permissionsFor(ch.guild.me).has("CREATE_INSTANT_INVITE"));
             if(!tChannel) {
-                return message.channel.send("Sorry, I doesn't have CREATE_INSTANT_INVITE Permission There!"); 
+                return message.channel.send("Tut mir leid, ich habe dort keine CREATE_INSTANT_INVITE-Berechtigung!"); 
             }
             let invite = await tChannel.createInvite({ temporary: false, maxAge: 0 }).catch(err => {
-                return message.channel.send(`${err} has occured!`);
+                return message.channel.send(`${err} ist aufgetreten!`);
             });
             message.channel.send(invite.url);
         } else {
-            return message.channel.send(`\`${args.join(' ')}\` - I'm not in that Server.`);
+            return message.channel.send(`\`${args.join(' ')}\` - Ich bin nicht auf diesem Server.`);
         }
     } else {
         return;

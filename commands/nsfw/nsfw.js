@@ -3,13 +3,13 @@ const akaneko = require('akaneko');
 
 module.exports = {
   name: "nsfw",
-  aliases: [],
+  aliases: ["hentai", "ht"],
   category: "nsfw",
   description: "Get some wallpapers",
   run: async (client, message, args) => {
     
     if(!message.channel.nsfw) {
-      return message.reply("This channel dosen't support nsfw content")
+      return message.reply("Dieser Kanal unterstützt keine NSFW-Inhalte!")
       
     } else {
     

@@ -9,36 +9,36 @@ module.exports = {
   run: async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
-        "Yopu should have admin perms to use this command"
+        "Du solltest über Administratorrechte verfügen, um diesen Befehl zu verwenden"
       );
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send("Please mention the person whose warning you want to reset");
+      return message.channel.send("Bitte erwähne die Person, deren Warnung du zurücksetzen möchtest");
     }
 
     if (message.mentions.users.first().bot) {
-      return message.channel.send("Bot are not allowed to have warnings");
+      return message.channel.send("Bot dürfen keine Warnungen haben!");
     }
 
     if (message.author.id === user.id) {
-      return message.channel.send("You are not allowed to reset your warnings");
+      return message.channel.send("Du darfst deine Warnungen nicht zurücksetzen!");
     }
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
     if (warnings === null) {
-      return message.channel.send(`${message.mentions.users.first().username} do not have any warnings`);
+      return message.channel.send(`${message.mentions.users.first().username} hat keine Warnungen mehr`);
     }
 
     db.delete(`warnings_${message.guild.id}_${user.id}`);
     user.send(
-      `Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`
+      `Alle deine Warnungen werden von ${message.author.username} von ${message.guild.name} zurückgesetzt.`
     );
     await message.channel.send(
-      `Reseted all warnings of ${message.mentions.users.first().username}`
+      `Alle Warnungen von ${message.mentions.users.first().username} zurückgesetzt.`
     );
   }
 };

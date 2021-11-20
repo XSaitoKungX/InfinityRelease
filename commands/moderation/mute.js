@@ -7,24 +7,24 @@ module.exports = {
   description: "muet",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("sorry you need permission to mute someone");
+      return message.channel.send("Tut mir leid, du brauchst die Berechtigung, jemanden stumm zu schalten!");
     }
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to mute");
+      return message.channel.send("Ich habe keine Berechtigung zum Stummschalten!");
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send("\```please mention the members for mute\```");
+      return message.channel.send("\```bitte erwähne die Mitglieder für stumm\```");
     }
     if (user.id === message.author.id) {
-      return message.channel.send("I can't mute you because you are message author");
+      return message.channel.send("Ich kann dich nicht stumm schalten, weil du der Autor der Nachricht bist!");
     }
     let reason = args.slice(1).join("");
 
     if (!reason) {
-      return message.channel.send(" \``` please give some  reason for mute\``` ");
+      return message.channel.send(" \``` Bitte gib einen Grund für die Stummschaltung an\``` ");
     }
 
     const vrole = user.roles.cache
@@ -32,17 +32,17 @@ module.exports = {
     let muterole = message.guild.roles.cache.find(x => x.name === "muted");
 
     if (!muterole) {
-      return message.channel.send("\```please create role name with muted \``` ");
+      return message.channel.send("\```Bitte Rollennamen mit stumm erstellen \``` ");
     }
     
     await user.roles.remove(vrole);
     await user.roles.add(muterole);
 
     await message.channel.send(
-      `you muted ${message.mentions.users.first().username} for ${reason}`
+      `Du hast ${message.mentions.users.first().username} stummgeschaltet. Grund: ${reason}`
     );
 
-    user.send(`You get muted in ${message.guild} for ${reason}`
+    user.send(`Du wurdest in ${message.guild} stummgeschaltet. Grund: ${reason}`
     );
   }
 };

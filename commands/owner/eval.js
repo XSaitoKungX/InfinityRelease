@@ -5,7 +5,7 @@ module.exports = {
     name: 'eval',
     category: 'owner',
     run: async (client, message, args) => {
-        if (message.author.id !== '682981714523586606') return message.channel.send("You do not have permission to use this command!");
+        if (message.author.id !== '857623917304348682') return message.channel.send("Du hast keine Berechtigung, diesen Befehl zu verwenden!");
         const embed = new MessageEmbed()
             .setTitle('Evaluating...')
         const msg = await message.channel.send(embed);
@@ -18,7 +18,9 @@ module.exports = {
             await msg.edit(embed)
             await msg.react('✅')
             await msg.react('❌')
-            const filter = (reaction, user) => (reaction.emoji.name === '❌' || reaction.emoji.name === '✅') && (user.id === message.author.id);
+            const filter = (reaction, user) => (reaction.emoji.name === '❌' 
+            || reaction.emoji.name === '✅') 
+            && (user.id === message.author.id);
             msg.awaitReactions(filter, { max: 1 })
                 .then((collected) => {
                     collected.map((emoji) => {

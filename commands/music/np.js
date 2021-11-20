@@ -4,20 +4,18 @@ module.exports = {
     name: 'nowplaying', // Optional
     aliases: ['np'], // Optional
     category: 'Music',
-    description: 'Gives info about the song that its being played and the progress of it', 
+    description: 'Gibt Informationen über das Lied, das gerade gespielt wird, und den Fortschritt davon', 
     run: async (client, message, args) => {
             const voice_channel = message.member.voice.channel;
             const embed = new MessageEmbed()
             .setColor('#FF5757')
-            .setDescription(`You need to be in a vc to execute this command!`)
+            .setDescription(`Du musst dich in einem VC befinden, um diesen Befehl auszuführen!`)
             if (!voice_channel) return message.channel.send(embed);
             let progressBar = client.player.createProgressBar(message, {
                 size: 20,
                 block: '▬',
                 arrow: '🔘'
             
-
-                
             });
             let song = await client.player.nowPlaying(message)
             const bar = new MessageEmbed()
@@ -29,9 +27,6 @@ module.exports = {
 
             if(progressBar)
 
-            
-
-                
                 message.channel.send(bar);
     }
 }

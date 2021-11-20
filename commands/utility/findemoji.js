@@ -10,7 +10,7 @@ module.exports = {
  
     run: async (client, message, args) => {
       if (!message.member.hasPermission("MANAGE_EMOJIS")) {
-            return message.channel.send(`You Don't Have Permission To Use This Command! Manage Emojis`)
+            return message.channel.send(`Du bist nicht berechtigt, diesen Befehl zu verwenden! - Emojis verwalten`)
         }
 let emojis = await fetch("https://emoji.gg/api/").then(res => res.json());
      const q = args.join(" ").toLowerCase().trim().split(" ").join("_");
