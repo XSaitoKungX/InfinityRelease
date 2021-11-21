@@ -31,23 +31,23 @@ module.exports = {
 
 
         if (args.join(' ').toLocaleLowerCase() == 'bronze') {
-            if (author < 200) return message.channel.send(Embed)
+            if (author < 500) return message.channel.send(Embed)
 
             await db.fetch(`bronze_${user.id}`);
             db.set(`bronze_${user.id}`, true)
 
             let Embed2 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Bronze - VIP für 200 Coins gekauft`);
+                .setDescription(`✅ | Bronze - VIP für 500 Coins gekauft`);
 
-            db.subtract(`money_${user.id}`, 200)
+            db.subtract(`money_${user.id}`, 500)
             message.channel.send(Embed2)
         } else if (args.join(' ').toLocaleLowerCase() == 'nikes') {
             let Embed3 = new MessageEmbed()
                 .setColor("RED")
-                .setDescription(`❌ | Du brauchst 600 Coins, um ein paar Nikes zu kaufen!`);
+                .setDescription(`❌ | Du brauchst 2.350 Coins, um ein paar Nikes zu kaufen!`);
 
-            if (author < 600) return message.channel.send(Embed3)
+            if (author < 2350) return message.channel.send(Embed3)
 
             await db.fetch(`nikes_${user.id}`)
             db.add(`nikes_${user.id}`, 1)
@@ -56,39 +56,40 @@ module.exports = {
                 .setColor("GREEN")
                 .setDescription(`✅ | Neue frische Nikes für 600 Coins gekauft.`);
 
-            db.subtract(`money_${user.id}`, 600)
+            db.subtract(`money_${user.id}`, 2350)
             message.channel.send(Embed4)
         } else if (args.join(' ').toLocaleLowerCase() == 'car') {
             let Embed5 = new MessageEmbed()
                 .setColor("RED")
-                .setDescription(`❌ | Du benötigst 800 Coins, um ein neues Auto zu kaufen!`);
+                .setThumbnail("https://s3-prod-europe.autonews.com/s3fs-public/Ferrari%20Daytona%20SP3.jpg")
+                .setDescription(`❌ | Du benötigst 4.500.000 Coins, um ein Ferrari Daytona SP3 zu kaufen!`);
 
-            if (author < 800) return message.channel.send(Embed5)
+            if (author < 4500000) return message.channel.send(Embed5)
 
             await db.fetch(`car_${user.id}`)
             db.add(`car_${user.id}`, 1)
 
             let Embed6 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Ein neues Auto für 800 Coins gekauft.`);
+                .setDescription(`✅ | Ein neues Auto für 4.500.000 Coins gekauft.`);
 
-            db.subtract(`money_${message.guild.id}_${user.id}`, 800)
+            db.subtract(`money_${message.guild.id}_${user.id}`, 4500000)
             message.channel.send(Embed6)
         } else if (args.join(' ').toLocaleLowerCase() == 'mansion') {
             let Embed7 = new MessageEmbed()
                 .setColor("RED")
-                .setDescription(`❌ | Du brauchst 1200 Coins, um ein Herrenhaus zu kaufen`);
+                .setDescription(`❌ | Du brauchst 5.975.000 Coins, um ein Herrenhaus zu kaufen!`);
 
-            if (author < 1200) return message.channel.send(Embed7)
+            if (author < 5975000) return message.channel.send(Embed7)
 
             await db.fetch(`house_${user.id}`)
             db.add(`house_${user.id}`, 1)
 
             let Embed8 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Ein Herrenhaus für 1200 Coins gekauft`);
+                .setDescription(`✅ | Ein Herrenhaus für 5.975.000 Coins gekauft`);
 
-            db.subtract(`money_${user.id}`, 1200)
+            db.subtract(`money_${user.id}`, 5975000)
             message.channel.send(Embed8)
         } else {
             if (message.content.toLowerCase() === `${prefix}buy`) {
