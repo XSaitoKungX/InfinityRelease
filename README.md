@@ -62,7 +62,7 @@ WENN DU MEHR COMMANDS HINZUFÜGEN MÖCHTEST SUPPORT SERVER BEITRETEN 😆 </h3>
 
 <!-- ###  Full setup [here](https://youtu.be/IX4DZq7iVf4)  -->
 
-### How to host watch' video  Watch it by clicking [here](https://youtu.be/NlCufWQUL54)
+<!-- ### How to host watch' video  Watch it by clicking [here](https://youtu.be/NlCufWQUL54) -->
 
 <h3  align='center'>Wenn du einen Fehler hast oder eine funktionierende Version wünschst, dann trete unserem Discord-Server bei</h3>
 
