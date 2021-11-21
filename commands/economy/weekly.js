@@ -5,7 +5,7 @@ const ms = require("parse-ms");
 module.exports = {
    
         name: "coins-system",
-        aliases: ["week"],
+        aliases: ["week", "weekly"],
         category: "economy",
         description: "Gives You 5000 per Day",
         usage: " ",

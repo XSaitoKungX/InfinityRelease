@@ -6,7 +6,7 @@ module.exports = {
         name: "withdraw",
         aliases: ["wd", "with"],
         category: "economy",
-        description: "Withdraws Money From Bank",
+        description: "Zieht Geld von der Bank ab",
         usage: "<amount>",
     
     run: async (bot, message, args) => {

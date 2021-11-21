@@ -7,7 +7,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     
         name: 'fish',
-        aliases: ['catchfish'],
+        aliases: ['catchfish', 'caf'],
         category: 'economy',
         description: 'Fange einen Fisch aus einem riesigen Ozean',
         usage: '[list | rewards] (optional)',
@@ -49,7 +49,7 @@ module.exports = {
 
             let embed = new MessageEmbed()
                 .setColor('GREEN')
-                .setDescription(`**🎣 | Du hast deine Leitung ausgeworfen und hat ${fishh.symbol} erwischt! Ich wette, es würde sich für ungefähr ${worth} verkaufen**!`)
+                .setDescription(`**🎣 | Du hast deine Leitung ausgeworfen und hat ${fishh.symbol} erwischt! Ich wette, es würde sich für ungefähr ${worth} Coins verkaufen**!`)
             message.channel.send(embed);
 
             db.add(`money_${user.id}`, worth);

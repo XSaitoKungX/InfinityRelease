@@ -29,7 +29,7 @@ module.exports = {
         } else {
             let moneyEmbed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Du hast deine tägliche Belohnung von geholt: ${amount} Coins`);
+                .setDescription(`✅ | Du hast deine tägliche Belohnung von ${amount} Coins geholt`);
             message.channel.send(moneyEmbed)
             db.add(`money_${user.id}`, amount)
             db.set(`daily_${user.id}`, Date.now())
