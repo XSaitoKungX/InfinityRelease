@@ -23,14 +23,14 @@ module.exports = {
        .setTimestamp();
        
     const done = new MessageEmbed()
-       .setDescription(`<:bfdyes:832931453892558848>  | Dein Vorschlag wird hier eingereicht, <#${channel}>\n\nNote: Du hast zugestimmt, eine DM auf eine Antwort auf deinen Vorschlag zu erhalten!`)
+       .setDescription(`📲 | Dein Vorschlag wird hier eingereicht, <#${channel}>\n\nNote: Du hast zugestimmt, eine DM auf eine Antwort auf deinen Vorschlag zu erhalten!`)
        .setColor("00FFFF")
        
     message.channel.send(done)
     
     let msgEmbed = await message.guild.channels.cache.get(channel).send(embed)
     
-    await msgEmbed.react('<:upvote:832931955556745236>')
-    await msgEmbed.react('<:downvote:832931677294428161> ')
+    await msgEmbed.react('✅')
+    await msgEmbed.react('❎')
   }
 }

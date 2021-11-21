@@ -19,27 +19,27 @@ if (channel === null) return;
     const replyQuery = args.slice(1).join(' ');
       
     const number = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>    | Ich glaube nicht, dass das eine Message-ID war!`)
+      .setDescription(`❌ | Ich glaube nicht, dass das eine Message-ID war!`)
       .setColor("FF2052")
       
     const id = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>  | Du hast vergessen, die Nachrichten-ID anzugeben!`)
+      .setDescription(`❌ | Du hast vergessen, die Nachrichten-ID anzugeben!`)
       .setColor("FF2052")
       
     const query = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Du hast vergessen, die Antwort anzugeben!`)
+      .setDescription(`❌ | Du hast vergessen, die Antwort anzugeben!`)
       .setColor("FF2052")
       
     const reply = new MessageEmbed()
-      .setDescription(`<:bfdyes:832931453892558848>  | Der Vorschlag wurde erfolgreich beantwortet.`)
+      .setDescription(`✔  | Der Vorschlag wurde erfolgreich beantwortet.`)
       .setColor("00FFFF")
       
     const noChannel = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Kein Vorschlagskanal gefunden!`)
+      .setDescription(`❌ | Kein Vorschlagskanal gefunden!`)
       .setColor("FF2052")
       
     const noMessage = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Keine Nachricht mit dieser ID gefunden!`)
+      .setDescription(`❌ | Keine Nachricht mit dieser ID gefunden!`)
       .setColor("FF2052")
     
       if(!messageID) return message.channel.send(id);
@@ -55,7 +55,7 @@ if (channel === null) return;
       
       const suggestedEmbed = await suggestionChannel.messages.fetch(messageID).catch(error => {
     const noMessage = new MessageEmbed()
-      .setDescription(`<:bfdno:832931445991276584>   | Keine Nachricht mit dieser ID gefunden!`)
+      .setDescription(`❌ | Keine Nachricht mit dieser ID gefunden!`)
       .setColor("FF2052")
   return message.channel.send(noMessage);
   })
