@@ -27,7 +27,7 @@ module.exports = {
 
         let Embed = new MessageEmbed()
             .setColor("RED")
-            .setDescription(`❌ | Du benötigst 200 Coinst, um Bronze - VIP zu kaufen!`);
+            .setDescription(`❌ | Du benötigst 500 Coins, um Bronze - VIP zu kaufen!`);
 
 
         if (args.join(' ').toLocaleLowerCase() == 'bronze') {
