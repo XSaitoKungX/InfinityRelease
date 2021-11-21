@@ -50,7 +50,7 @@ let embed = new MessageEmbed()
     { name: "👑 Bot Owner:",value: `\`\`\`꧁Saito꧂#6248\`\`\``},
   )
   .setColor("RANDOM")
-  .setFooter("Danke für die Wahl von Automodbot")  
+  .setFooter("Danke für die Nutzung von Automod :smiling_face_with_3_hearts:")  
 
 return message.channel.send(embed);
 return message.react("🔋");
