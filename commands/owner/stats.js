@@ -47,7 +47,7 @@ let embed = new MessageEmbed()
     { name: "⏰ Uptime: ", value: uptime , inline: true },
     { name: "🏓 Ping:",value: `\`\`\`${Math.round(message.client.ws.ping)} ms\`\`\``, inline: true },
     { name: "💿 RAM: ", value: `\`\`\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\`\`\``, inline: true  },
-    { name: "👑 Bot Owner:",value: `\`\`\`Cwkhan\`\`\``},
+    { name: "👑 Bot Owner:",value: `\`\`\`꧁Saito꧂#6248\`\`\``},
   )
   .setColor("RANDOM")
   .setFooter("Danke für die Wahl von Automodbot")  
