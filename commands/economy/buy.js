@@ -38,7 +38,8 @@ module.exports = {
 
             let Embed2 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Bronze - VIP für 500 Coins gekauft`);
+                .setDescription(`✅ | Bronze - VIP für 500 Coins gekauft`)
+                .setThumbnail("https://cdn.dribbble.com/users/765195/screenshots/7021533/bronze_1600_4x.png");
 
             db.subtract(`money_${user.id}`, 500)
             message.channel.send(Embed2)
@@ -54,14 +55,14 @@ module.exports = {
 
             let Embed4 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Neue frische Nikes für 600 Coins gekauft.`);
+                .setDescription(`✅ | Neue frische Nikes für 600 Coins gekauft.`)
+                .setThumbnail('https://i.pinimg.com/474x/5b/a8/ef/5ba8efef1ee6401dff5df1d0a4c150fe--typography-served-advertising-design.jpg');
 
             db.subtract(`money_${user.id}`, 2350)
             message.channel.send(Embed4)
         } else if (args.join(' ').toLocaleLowerCase() == 'car') {
             let Embed5 = new MessageEmbed()
                 .setColor("RED")
-                .setThumbnail("https://s3-prod-europe.autonews.com/s3fs-public/Ferrari%20Daytona%20SP3.jpg")
                 .setDescription(`❌ | Du benötigst 4.500.000 Coins, um ein Ferrari Daytona SP3 zu kaufen!`);
 
             if (author < 4500000) return message.channel.send(Embed5)
@@ -71,7 +72,8 @@ module.exports = {
 
             let Embed6 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Ein neues Auto für 4.500.000 Coins gekauft.`);
+                .setDescription(`✅ | Ein neues Auto für 4.500.000 Coins gekauft.`)
+                .setThumbnail("https://s3-prod-europe.autonews.com/s3fs-public/Ferrari%20Daytona%20SP3.jpg");
 
             db.subtract(`money_${message.guild.id}_${user.id}`, 4500000)
             message.channel.send(Embed6)
@@ -87,7 +89,8 @@ module.exports = {
 
             let Embed8 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Ein Herrenhaus für 5.975.000 Coins gekauft`);
+                .setDescription(`✅ | Ein Herrenhaus für 5.975.000 Coins gekauft`)
+                .setThumbnail('https://i.ytimg.com/vi/o-OegG1u4ug/maxresdefault.jpg');
 
             db.subtract(`money_${user.id}`, 5975000)
             message.channel.send(Embed8)
