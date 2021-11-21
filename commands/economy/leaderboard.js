@@ -6,7 +6,7 @@ module.exports = {
         name: "leaderboard",
         aliases: ['lb'],
         category: 'economy',
-        description: 'Shows Server\'s Top 10 Users of Economy Leaderboard',
+        description: 'Zeigt die Top-10-Benutzer der Economy-Bestenliste des Servers an.',
         usage: ' ',
         accessableby: "everyone"
     ,
