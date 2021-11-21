@@ -7,7 +7,7 @@ module.exports = {
   category: "fun",
   run: async (client, message, args) => {
     try {
-      if (!args[0]) return message.channel.send("Please Give Me Equation!");
+      if (!args[0]) return message.channel.send("Bitte gib mir eine Gleichung!");
 
       const embed = new MessageEmbed()
         .setColor(`${Color}`)
@@ -17,7 +17,7 @@ module.exports = {
 
       message.channel.send(embed);
     } catch (error) {
-      message.channel.send(`Please Give Me Valid Equation | Try Again Later!`).then(() => console.log(error));
+      message.channel.send(`Bitte gib mir eine gültige Gleichung | Versuche es später noch einmal!`).then(() => console.log(error));
     }
   }
 };

@@ -7,7 +7,7 @@ module.exports = {
         name: "beg",
         noalias: [""],
         category: "economy",
-        description: "Beg for money",
+        description: "Betteln um Geld",
         usage: " ",
         accessableby: "everyone"
     ,

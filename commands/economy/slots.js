@@ -19,11 +19,11 @@ module.exports = {
     let win = false;
 
     let moneymore = new MessageEmbed()
-    .setColor("GREEN")
+    .setColor("RED")
     .setDescription(`❌ | Du wettest mehr als du momentan hast!`);
 
     let moneyhelp = new MessageEmbed()
-    .setColor("GREEN")
+    .setColor("RED")
     .setDescription(`❌ | Bitte einen Betrag angeben!`); 
 
     if (!money) return message.channel.send(moneyhelp);
@@ -42,13 +42,13 @@ module.exports = {
     if (win) {
         let slotsEmbed1 = new MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nDu gewinnst ${money} Coins`)
-            .setColor("GREEN")
+            .setColor("RANDOM")
         message.channel.send(slotsEmbed1)
         db.add(`money_${user.id}`, money)
     } else {
         let slotsEmbed = new MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nDu hast leider verloren und verlierst ${money} Coins`)
-            .setColor("GREEN")
+            .setColor("RANDOM")
         message.channel.send(slotsEmbed)
         db.subtract(`money_${user.id}`, money)
     }

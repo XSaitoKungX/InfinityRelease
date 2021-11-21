@@ -5,7 +5,7 @@ module.exports = {
   name: "doujin",
   aliases: [],
   category: "nsfw",
-  description: "Get some wallpapers",
+  description: "Sends a random doujin page imageURL!",
   run: async (client, message, args) => {
     
     if(!message.channel.nsfw) {

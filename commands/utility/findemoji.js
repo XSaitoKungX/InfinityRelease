@@ -17,7 +17,7 @@ let emojis = await fetch("https://emoji.gg/api/").then(res => res.json());
      let matches = emojis.filter(s => s.title == q || s.title.includes(q));
      
      let noResult = new discord.MessageEmbed()
-        .setDescription(`| :x: No Results found for ${args.join(" ")}!`)
+        .setDescription(`| :x: Keine Ergebnisse gefunden für ${args.join(" ")}!`)
         .setColor("FF2052")
      
      if (!matches.length) return message.channel.send(noResult)
@@ -39,7 +39,7 @@ let emojis = await fetch("https://emoji.gg/api/").then(res => res.json());
      while (doing) {
      let reaction;
      try { reaction = await msg.awaitReactions(filter, { max: 1, time: 120000, errors: ["time"] })}
-     catch { message.channel.send(message.author.toString() + ", You took too long."); msg.reactions.removeAll() ; doing = false; return; };
+     catch { message.channel.send(message.author.toString() + ", Du hast zu lange gebraucht."); msg.reactions.removeAll() ; doing = false; return; };
      reaction = reaction.first();
      const rmsg = reaction.message;
      if (reaction.emoji.name == emojis[0]) {
@@ -81,18 +81,18 @@ rmsg.reactions.resolve(reaction.emoji.name).users.remove(message.author.id).catc
         message.channel.stopTyping();
        } catch {
         message.channel.stopTyping();
-        message.channel.send(`Unable to add ${res.title}.`);
+        message.channel.send(`${res.title} kann nicht hinzugefügt werden.`);
         rmsg.reactions.resolve(reaction.emoji.name).users.remove(message.author.id).catch(err => {})
         doing = false;
         break;
        }
-       message.channel.send(`Successfully added ${created}!`);
+       message.channel.send(`${created} Erfolgreich hinzugefügt!`);
       rmsg.reactions.resolve(reaction.emoji.name).users.remove(message.author.id).catch(err => {})
        doing = false;
        break;
  
      } else if (reaction.emoji.name == emojis[3]) {
-       message.channel.send("Cancelled command.");
+       message.channel.send("Befehl Abgebrochen.");
        msg.reactions.removeAll();
        return;
      }};

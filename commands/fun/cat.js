@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 module.exports = {
   name: "cat",
   category: "fun",
-description: "Sends a random image of a cat",
+description: "Sendet ein zufälliges Bild einer Katze",
 usage: "[command]",
 run: async (client, message, args, level) => {
 //command

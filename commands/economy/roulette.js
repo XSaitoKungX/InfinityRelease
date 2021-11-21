@@ -7,7 +7,7 @@ module.exports = {
         name: "roulette",
         aliases: ["roul"],
         category: "economy",
-        description: "Bet a colour to win or lose",
+        description: "Wette auf eine Farbe, um zu gewinnen oder zu verlieren",
         usage: "[colour]<amount>",
         accessableby: "everyone"
     ,
@@ -35,15 +35,15 @@ module.exports = {
         let random = Math.floor((Math.random() * 10));
 
         let moneyhelp = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setDescription(`❌ | Gib einen Betrag zum Spielen an | ${prefix}roulette <color> <amount>`);
 
         let moneymore = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setDescription(`❌ | Du wettest mehr als du momentan hast!`);
 
         let colorbad = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setDescription(`❌ | Gib eine Farbe an | Red [1.5x] (normal) Black [2x] (hard) Green [15x](rare)`);
 
         if (!colour) return message.channel.send(colorbad);
@@ -60,27 +60,27 @@ module.exports = {
             money *= 15
             db.add(`money_${user.id}`, money)
             let moneyEmbed1 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RANDOM")
                 .setDescription(`✅ | Du gewinnst ${money} Coins\n\nMultiplier: 15x`);
             message.channel.send(moneyEmbed1)
         } else if (isOdd(random) && colour == 1) { // Red
             money = parseInt(money * 1.5)
             db.add(`money_${user.id}`, money)
             let moneyEmbed2 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RANDOM")
                 .setDescription(`🔴 | Du gewinnst ${money} Coins\n\nMultiplier: 1.5x`);
             message.channel.send(moneyEmbed2)
         } else if (!isOdd(random) && colour == 0) { // Black
             money = parseInt(money * 2)
             db.add(`money_${user.id}`, money)
             let moneyEmbed3 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RANDOM")
                 .setDescription(`⬛ | Du gewinnst ${money} Coins\n\nMultiplier: 2x`);
             message.channel.send(moneyEmbed3)
         } else { // Wrong
             db.subtract(`money_${user.id}`, money)
             let moneyEmbed4 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RANDOM")
                 .setDescription(`❌ | Du hast leider verloren! Verlierst ${money} Coins\n\nMultiplier: 0x`);
             message.channel.send(moneyEmbed4)
         }

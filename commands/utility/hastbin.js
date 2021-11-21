@@ -8,7 +8,7 @@ module.exports = {
   usage: `haste <code/text>`,
   category: "utility",
   args: true,
-  aliases: ["haste"],
+  aliases: ["hastbin", "hbi"],
   run: async (client, message, args) => {
     message.delete();
     const Content = args.join(" ");

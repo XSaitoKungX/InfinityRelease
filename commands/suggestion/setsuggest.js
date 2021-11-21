@@ -4,6 +4,7 @@ const db = require("quick.db");
 
 module.exports = {
     name: "setsuggest",
+    aliases: ["sets"],
     category: "suggestion",
     usage: "setsuggest <#channel>",
     authorPermission: ["MANAGE_GUILD"],
@@ -20,8 +21,10 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
         await db.set(`suggestion_${message.guild.id}`, Channel.id);
 
         let Embed = new MessageEmbed()
-        .setColor("00FFFF")
+        .setColor("RANDOM")
         .setDescription(`Vorschlagskanal ist eingestellt als <#${Channel.id}>`)
+        .setTimestamp()
+        .setThumbnail("https://cdn2.vectorstock.com/i/1000x1000/47/41/video-game-controller-with-wings-icon-logo-vector-26374741.jpg")
 
         return message.channel.send(Embed);
 

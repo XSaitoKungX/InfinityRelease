@@ -6,7 +6,7 @@ module.exports = {
         name: "removemoney",
         aliases: ["rm"],
         category: "economy",
-        description: "Removes money from a user",
+        description: "Geld von einem Benutzer leeren",
         usage: "[ mention | ID]",
         accessableby: "Administrator, Owner"
     ,

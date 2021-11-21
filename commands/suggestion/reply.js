@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
-  name: "sreply",
-  aliases: ["srly"],
+  name: "reply",
+  aliases: ["rly"],
   category: "suggestion",
   run: async (client, message, args) => {
     
@@ -78,9 +78,9 @@ if (channel === null) return;
       
     const embed = new MessageEmbed()
       .setDescription(
-        `Du hast eine Antwort auf deinen Vorschlag erhalten <:bfdyes:832931453892558848> . 
+        `Du hast eine Antwort auf deinen Vorschlag erhalten ✨🎉. 
         **[Message Link](https://discord.com/channels/${message.guild.id}/${channel}/${messageID})**`)
-      .setColor("BLUE")
+      .setColor("RANDOM")
       user.send(embed)
         
       } catch(err) {

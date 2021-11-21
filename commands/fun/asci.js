@@ -6,16 +6,16 @@ module.exports = {
     aliases: [],
     category: "fun",
     usage: "ascii <text>",
-    description: "Returns provided text in ascii format.",
+    description: "Gibt bereitgestellten Text im ASCII-Format zurück",
     run: async (client, message, args) => {
 
    let text = args.join(" ");
    if(!text) {
-return message.channel.send(`Please provide text for the ascii conversion!`)
+return message.channel.send(`Bitte Text für die ASCII-Konvertierung angeben!`)
 }
    let maxlen = 20
 if(text.length > 20) {
-return message.channel.send(`Please put text that has 20 characters or less because the conversion won't be good!`)
+return message.channel.send(`Bitte gib Text mit maximal 20 Zeichen ein, da die Konvertierung nicht gut ist!`)
 }
  // AGAIN, MAKE SURE TO INSTALL FIGLET PACKAGE!  
 figlet(text, function(err, data) {

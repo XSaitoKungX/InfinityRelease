@@ -20,7 +20,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`${details.is_verified ? 
-                `${details.username} <a:verified:727820439497211994>` :
+                `${details.username} Verifiziert ✅` :
                  ` ${details.username}`} ${details.is_private ? '🔒' :
                   ''} `)
             .setDescription(details.biography)

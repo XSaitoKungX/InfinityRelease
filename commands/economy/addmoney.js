@@ -6,7 +6,7 @@ module.exports = {
         name: "addmoney",
         aliases: ["am"],
         category: "economy",
-        description: "Adds Money to a user",
+        description: "Geld an einem Benutzer hinzufügen",
         usage: "[ mention | ID]",
         accessableby: "Administrator, Owner"
     ,
@@ -25,7 +25,7 @@ module.exports = {
         let bal = db.fetch(`money_${user.id}`)
 
         let moneyEmbed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RANDOM")
             .setDescription(`✅ | Added ${args[1]} coins\n\nNew Balance: ${bal}`);
         message.channel.send(moneyEmbed)
 

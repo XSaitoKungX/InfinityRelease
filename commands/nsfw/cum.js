@@ -5,7 +5,7 @@ module.exports = {
   name: "cum",
   aliases: [],
   category: "nsfw",
-  description: "Get some wallpapers",
+  description: "Basically sticky white stuff that is usually milked from sharpies.",
   run: async (client, message, args) => {
     
     if(!message.channel.nsfw) {

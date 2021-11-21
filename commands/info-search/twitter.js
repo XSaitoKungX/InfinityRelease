@@ -10,7 +10,7 @@ module.exports = {
   premiumOnly: "true",
   run: async (client, msg, args) => {
     let user = args[0]
-    if(!user) return msg.channel.send("Provide your twitter name")
+    if(!user) return msg.channel.send("Gib deinen Twitter-Namen an")
     
     try {
       const body = await twitter.users(user)
@@ -27,8 +27,8 @@ module.exports = {
       .setImage(body.profile_banner_url)
       msg.channel.send(tweet)
     } catch (e) {
-      if(e.status === 403) return msg.channel.send("This user private mode, or deleted account")
-      else if(e.status === 404) return msg.channel.send("Not Found")
+      if(e.status === 403) return msg.channel.send("Dieser Benutzer hat entweder privater Modus angemacht oder Konto gelöscht!")
+      else if(e.status === 404) return msg.channel.send("Nicht gefunden!")
       else return msg.channel.send(`Unknown error: \`${e.message}\``)
     }
   }

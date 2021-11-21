@@ -8,9 +8,9 @@ module.exports = {
   run: async (client, message, args) => {
     const text = args.join("+");
     const e = new MessageEmbed()
-      .setTitle("MineCraft achievement!")
+      .setTitle("Glückwunsch, du hast **New Achievement** freigeschaltet!!! :tada:")
       .setImage(
-        `https://minecraftskinstealer.com/achievement/12/Achievement%20Get!/${text}`
+        `https://minecraftskinstealer.com/achievement/11/Achievement+Get%21/${text}`
       );
     message.channel.send(e);
   },

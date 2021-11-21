@@ -4,6 +4,7 @@ const { parse } = require("twemoji-parser");
 
 module.exports = {
   name: "emojiadd",
+  aliases: ['stealemoji', 'semot', 'aemo'],
   category: "moderation",
   usage: "stealemoji <emoji> <custom name>",
   description: "Steal an emoji from a different server",
@@ -11,7 +12,7 @@ module.exports = {
   memberPermissions: ["MANAGE_EMOJIS"],
   async execute(bot, message, args) {
     const emoji = args[0];
-    if (!emoji) return message.channel.send("Please Give Me A Emoji!");
+    if (!emoji) return message.channel.send("Bitte gib mir ein Emoji!");
 
     let customemoji = Discord.Util.parseEmoji(emoji);
 
@@ -27,9 +28,9 @@ module.exports = {
       );
       const Added = BaseEmbed(message)
         .setTitle("Emoji Added")
-        .setColor("BLUE")
+        .setColor("RANDOM")
         .setDescription(
-          `Emoji Has Been Added! | Name : ${
+          `Emoji wurde erfolgreich hinzugefügt! | Name : ${
             name || `${customemoji.name}`
           } | Preview : [Click Me](${Link})`
         );
@@ -37,7 +38,7 @@ module.exports = {
     } else {
       let CheckEmoji = parse(emoji, { assetType: "png" });
       if (!CheckEmoji[0])
-        return message.channel.send("Please Give Me A Valid Emoji!");
+        return message.channel.send("Bitte gib mir ein gültiges Emoji!");
       message.channel.send(
         "You Can Use Normal Emoji Without Adding In Server!"
       );

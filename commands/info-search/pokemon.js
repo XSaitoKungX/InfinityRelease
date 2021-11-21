@@ -14,7 +14,7 @@ const options = {
   
 }
 
-message.channel.send(`<a:Exe_Nitro3:743845033475702794> Informationen für das Pokémon abrufen`).then(msg => {
+message.channel.send(`🔮 | Informationen für das Pokémon abrufen`).then(msg => {
   get(options).then(body => {
     
     let embed = new MessageEmbed()

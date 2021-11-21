@@ -18,13 +18,13 @@ module.exports = {
          
        .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
        .setDescription(`${suggestionQuery}`)
-       .setColor("00FFFF")
+       .setColor("RANDOM")
        .setFooter("Status: Pending")
        .setTimestamp();
        
     const done = new MessageEmbed()
        .setDescription(`📲 | Dein Vorschlag wird hier eingereicht, <#${channel}>\n\nNote: Du hast zugestimmt, eine DM auf eine Antwort auf deinen Vorschlag zu erhalten!`)
-       .setColor("00FFFF")
+       .setColor("RANDOM")
        
     message.channel.send(done)
     

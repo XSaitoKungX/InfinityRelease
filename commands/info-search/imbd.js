@@ -2,7 +2,8 @@ const discord = require("discord.js");
 const imdb = require("imdb-api");
 
 module.exports = {
-name: "imdb",
+name: "filminfo",
+aliases: ["imdb", "smin"],
   description: "Get the information about series and movie",
   category: "info",
   usage: "imdb <name>",

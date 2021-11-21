@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 module.exports = {
-name: "ainfo",
+name: "stats",
 description: "`Show detailed stats of bot`",
 category: "owner",
-aliases: ["detail"],
+aliases: ["detail", "ainfo"],
 run: async (client, message, args, level) => {
 //command
-  if(message.author.id != 857623917304348682){
+  if(message.author.id != 848917797501141052){
     const noperms = new MessageEmbed()
-    .setDescription("<:astroz_wrong:825598313499459605> Dieser Befehl wird nur von meinem Besitzer verwendet **Saito ")
+    .setDescription("🚫 | Dieser Befehl wird nur von meinem Besitzer verwendet **Saito ")
     .setColor("RANDOM");
     return message.channel.send(noperms)
   } 
@@ -41,19 +41,19 @@ let embed = new MessageEmbed()
 
   .setTitle(`${message.client.user.username} Stats`)
   .addFields(
-    { name: "<:servers:822736807883440161> Servers:", value: `\`\`\`${servers_count}\`\`\``, inline: true },
-    { name: "<:users:822737049740247070> Users:", value: `\`\`\`${sum}\`\`\``, inline: true },
-    { name: "<:astrozchannels:832228652569329665> Channels",value: `\`\`\`${message.client.channels.cache.size}\`\`\``, inline: true },
-    { name: "<a:uptime:822736925495394314> Uptime: ", value: uptime , inline: true },
-    { name: "<a:astorzping:825420347112554496> Ping:",value: `\`\`\`${Math.round(message.client.ws.ping)} ms\`\`\``, inline: true },
-    { name: "<:astroz_ram:822500018639994920>  RAM: ", value: `\`\`\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\`\`\``, inline: true  },
-    { name: "<a:Owner:822760998938869760> Bot Owner:",value: `\`\`\`Cwkhan\`\`\``},
+    { name: "🏢 Servers:", value: `\`\`\`${servers_count}\`\`\``, inline: true },
+    { name: "🔥 Users:", value: `\`\`\`${sum}\`\`\``, inline: true },
+    { name: "🖥 Channels",value: `\`\`\`${message.client.channels.cache.size}\`\`\``, inline: true },
+    { name: "⏰ Uptime: ", value: uptime , inline: true },
+    { name: "🏓 Ping:",value: `\`\`\`${Math.round(message.client.ws.ping)} ms\`\`\``, inline: true },
+    { name: "💿 RAM: ", value: `\`\`\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\`\`\``, inline: true  },
+    { name: "👑 Bot Owner:",value: `\`\`\`Cwkhan\`\`\``},
   )
-  .setColor("3498DB")
-  .setFooter("Thx For Choosing automodbot")  
+  .setColor("RANDOM")
+  .setFooter("Danke für die Wahl von Automodbot")  
 
 return message.channel.send(embed);
-return message.react("<:astroz_correct:825597747800309770>");
+return message.react("🔋");
 }
 };
 

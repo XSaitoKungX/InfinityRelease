@@ -7,7 +7,7 @@ module.exports = {
         name: "buy",
         noalias: [""],
         category: "economy",
-        description: "buys items",
+        description: "Sachen im Shop kaufen",
         usage: "[item]",
         accessableby: "everyone"
     ,
@@ -26,8 +26,8 @@ module.exports = {
         let author = db.fetch(`money_${user.id}`)
 
         let Embed = new MessageEmbed()
-            .setColor("GREEN")
-            .setDescription(`❌ | Du benötigst 200 Coinst, um Bronze VIP zu kaufen!`);
+            .setColor("RED")
+            .setDescription(`❌ | Du benötigst 200 Coinst, um Bronze - VIP zu kaufen!`);
 
 
         if (args.join(' ').toLocaleLowerCase() == 'bronze') {
@@ -38,13 +38,13 @@ module.exports = {
 
             let Embed2 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ | Bronze VIP für 200 Coins gekauft`);
+                .setDescription(`✅ | Bronze - VIP für 200 Coins gekauft`);
 
             db.subtract(`money_${user.id}`, 200)
             message.channel.send(Embed2)
         } else if (args.join(' ').toLocaleLowerCase() == 'nikes') {
             let Embed3 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du brauchst 600 Coins, um ein paar Nikes zu kaufen!`);
 
             if (author < 600) return message.channel.send(Embed3)
@@ -60,7 +60,7 @@ module.exports = {
             message.channel.send(Embed4)
         } else if (args.join(' ').toLocaleLowerCase() == 'car') {
             let Embed5 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du benötigst 800 Coins, um ein neues Auto zu kaufen!`);
 
             if (author < 800) return message.channel.send(Embed5)
@@ -76,7 +76,7 @@ module.exports = {
             message.channel.send(Embed6)
         } else if (args.join(' ').toLocaleLowerCase() == 'mansion') {
             let Embed7 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du brauchst 1200 Coins, um ein Herrenhaus zu kaufen`);
 
             if (author < 1200) return message.channel.send(Embed7)
@@ -93,7 +93,7 @@ module.exports = {
         } else {
             if (message.content.toLowerCase() === `${prefix}buy`) {
                 let embed9 = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("RED")
                     .setDescription(`❌ | Gib einen Artikel zum Kaufen ein!\nType ${prefix}shop, um Items Liste zu sehen.`)
                 return message.channel.send(embed9)
             }

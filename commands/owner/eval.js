@@ -5,7 +5,7 @@ module.exports = {
     name: 'eval',
     category: 'owner',
     run: async (client, message, args) => {
-        if (message.author.id !== '857623917304348682') return message.channel.send("Du hast keine Berechtigung, diesen Befehl zu verwenden!");
+        if (message.author.id !== '848917797501141052') return message.channel.send("Du hast keine Berechtigung, diesen Befehl zu verwenden!"); // Oder GuildID
         const embed = new MessageEmbed()
             .setTitle('Evaluating...')
         const msg = await message.channel.send(embed);

@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
   name: "affect",
+  aliases: ["shit"],
   category: "Image",
   description: "get affected, REALLY AFFECTED",
   usage: "jail <user>",

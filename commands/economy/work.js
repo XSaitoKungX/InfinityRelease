@@ -24,7 +24,7 @@ module.exports = {
             let time = ms(timeout - (Date.now() - author));
 
             let timeEmbed = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast schon vor kurzem gearbeitet\n\nVersuche es noch einmal in ${time.minutes}m ${time.seconds}s `);
             message.channel.send(timeEmbed)
         } else {

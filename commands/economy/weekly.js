@@ -7,7 +7,7 @@ module.exports = {
         name: "coins-system",
         aliases: ["week", "weekly"],
         category: "economy",
-        description: "Gives You 5000 per Day",
+        description: "Hol dir deine wöchentliche Belohnung: 600 per Woche",
         usage: " ",
         accessableby: "everyone"
     ,
@@ -23,7 +23,7 @@ module.exports = {
             let time = ms(timeout - (Date.now() - weekly));
 
             let timeEmbed = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast deine wöchentliche Belohnung bereits geholt\n\nHol es dir später wieder in ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s `);
             message.channel.send(timeEmbed)
         } else {

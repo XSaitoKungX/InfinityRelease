@@ -7,7 +7,7 @@ module.exports = {
         name: "sell",
         noalias: [""],
         category: "economy",
-        description: "Sell to somebody",
+        description: "Sachen an jemanden verkaufen",
         usage: "[mention | ID] <amount>",
         accessableby: "everyone"
     ,
@@ -24,7 +24,7 @@ module.exports = {
 
         if (args.join(' ').toLocaleLowerCase() == 'nikes') {
             let embed1 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast keine Nikes zu verkaufen!`);
 
             let nikees = await db.fetch(`nikes_${user.id}`)
@@ -42,7 +42,7 @@ module.exports = {
             message.channel.send(embed2)
         } else if (args.join(' ').toLocaleLowerCase() == 'car') {
             let embed3 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast kein Auto zu verkaufen!`);
 
             let cars = await db.fetch(`car_${user.id}`)
@@ -60,7 +60,7 @@ module.exports = {
             message.channel.send(embed4)
         } else if (args.join(' ').toLocaleLowerCase() == 'mansion') {
             let sembed2 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast kein Herrenhaus zu verkaufen!`);
 
             let houses = await db.fetch(`house_${user.id}`)
@@ -79,7 +79,7 @@ module.exports = {
         } else {
             if (message.content.toLowerCase() === `${prefix}sell`) {
                 let embed9 = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("RED")
                     .setDescription(`❌ | Gib einen Artikel ein, den du verkaufen möchtest. Type ${prefix}store, um Items Liste nachzusehen`)
                 return message.channel.send(embed9)
             } else {

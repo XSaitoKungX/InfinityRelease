@@ -6,7 +6,7 @@ module.exports = {
     name: "pay",
     noalias: [""],
     category: "economy",
-    description: "Pay to Somebody",
+    description: "Geld an deinen Freunden spenden",
     usage: "[mention | ID] <amount>",
     accessableby: "everyone"
   ,
@@ -28,14 +28,14 @@ try {
     let member = db.fetch(`money_${user2.id}`);
 
     let embed1 = new MessageEmbed()
-      .setColor("GREEN")
+      .setColor("RED")
       .setDescription(`❌ | Erwähne jemanden, den du Geld geben möchtest`);
 
     if (!args[0]) {
       return message.channel.send(embed1);
     }
     let embed2 = new MessageEmbed()
-      .setColor("GREEN")
+      .setColor("RED")
       .setDescription(`❌ | Du kannst kein Geld an dich selbst geben!`);
 
     if (user.user.id === message.author.id) {
@@ -43,21 +43,21 @@ try {
     }
 
     let embed3 = new MessageEmbed()
-      .setColor("GREEN")
+      .setColor("RED")
       .setDescription(`❌ | Gib einen zu gegebenen Betrag an!`);
 
     if (!args[1]) {
       return message.channel.send(embed3);
     }
     let embed4 = new MessageEmbed()
-      .setColor("GREEN")
+      .setColor("RED")
       .setDescription(`❌ | Gib einen gültigen Betrag ein!`);
 
     if (isNaN(args[1])) {
       return message.channel.send(embed4);
     }
     let embed5 = new MessageEmbed()
-      .setColor("GREEN")
+      .setColor("RED")
       .setDescription(`❌ | Du hast nicht so viel Geld!`);
 
     if (member < args[1]) {

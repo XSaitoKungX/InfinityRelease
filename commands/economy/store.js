@@ -7,7 +7,7 @@ module.exports = {
         name: "shop",
         aliases: ["store"],
         category: "economy",
-        description: "Shows list of items",
+        description: "Zeig Shop-Liste an",
         usage: " ",
         accessableby: "everyone"
     ,
@@ -31,8 +31,10 @@ let g = [1 , 2, 3, 4, null]
  Mit Jagdgewehr kann man Tiere fangen und Geld verdienen. [${prefix}buy/${prefix}sell Hunting Rifle]\n\nBank Note: \`2600$\`
  Du kannst den Speicher deiner Bank auf 100 bis 5000 erhöhen. [${prefix}buy/${prefix}sell Bank Note]
  `)
-            .setColor("BLUE")
-        .setFooter(`Angefordert von: ${message.author.username}`)
+            .setColor("RANDOM")
+            .setFooter(`Angefordert von: ${message.author.username}`)
+            .setTimestamp()
+            .setThumbnail('https://media.istockphoto.com/vectors/one-stop-shop-neon-sign-vector-shoping-design-template-light-banner-vector-id1248210644?k=20&m=1248210644&s=170667a&w=0&h=q7v2ic677NBiAP6HPTn5vhsTd3qKYcuZPHQeQSoDh5Q=')
         message.channel.send(embed)
       if(args[0] === "2"){
         

@@ -17,7 +17,7 @@ module.exports = {
         if (args.join(' ').toLocaleLowerCase() == 'all') {
             let money = await db.fetch(`bank_${user.id}`)
             let embed = new MessageEmbed()
-              .setColor("GREEN")
+              .setColor("RED")
               .setDescription(`❌ | **Du hast leider kein Geld zum Abheben!**`)
             if (!money) return message.channel.send(embed)
             db.subtract(`bank_${user.id}`, money)
@@ -30,28 +30,28 @@ module.exports = {
         } else {
 
             let embed2 = new MessageEmbed() 
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Gib einen Auszahlungsbetrag an!`);
 
             if (!args[0]) {
                 return message.channel.send(embed2)
             }
             let embed6 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Dein Betrag ist keine Zahl!`)
 
             if(isNaN(args[0])) {
                 return message.channel.send(embed6)
             }
             let embed3 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du kannst kein negatives Geld abheben!`);
 
             if (message.content.includes('-')) {
                 return message.channel.send(embed3)
             }
             let embed4 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setDescription(`❌ | Du hast nicht so viel Geld auf der Bank!`);
 
             if (member2 < args[0]) {

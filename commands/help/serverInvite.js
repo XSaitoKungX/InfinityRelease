@@ -1,7 +1,8 @@
 const discord = require("discord.js");
 
 module.exports = {
-  name: "invite",
+  name: "serverinvite",
+  aliases: ["serverinv", "srinv"],
   category: "info",
   description: "INVITE Automodv12 beta BOT",
   run: async (client, message, args) => {
@@ -13,8 +14,7 @@ module.exports = {
     .setFooter(`Erstellt mit ❤ von XSaitoKungX `)
     .setTimestamp(message.timestamp = Date.now())
     
-    message.channel .send(embed)
+    message.channel .send(embed);
     
-  
-  }
-}
+  },
+};

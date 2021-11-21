@@ -5,7 +5,7 @@ module.exports = {
     name: "balance",
     aliases: ["bal", "money"],
     category: "economy",
-    description: "Shows Current Balance",
+    description: "Dein Kontostand anzeigen",
     usage: "[username | nickname | mention | ID](optional)",
     accessableby: "everyone"
   ,

@@ -5,7 +5,7 @@ module.exports = {
   name: "femdom",
   aliases: [],
   category: "nsfw",
-  description: "Get some wallpapers",
+  description: "Female Domination?",
   run: async (client, message, args) => {
     
     if(!message.channel.nsfw) {

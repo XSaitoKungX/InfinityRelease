@@ -19,9 +19,9 @@ module.exports = (type, description, ...otherArgs) => {
     .setDescription(
       `${
         type === "success"
-          ? "<:aneoTick:837567483422179358>"
+          ? "✅"
           : type === "fail"
-          ? "<:aneoError:837566696818343956>"
+          ? "🚫"
           : ""
       } ${description}`
     );
