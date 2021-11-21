@@ -31,10 +31,10 @@ let g = [1 , 2, 3, 4, null]
     [${prefix}buy/${prefix}sell Fishing Rod]\n\nHunting Rifle: \`2000$\`
     Mit Jagdgewehr kann man Tiere fangen und Geld verdienen. [${prefix}buy/${prefix}sell Hunting Rifle]\n\nBank Note: \`2600$\`
     Du kannst den Speicher deiner Bank auf 100 bis 5000 erhöhen. [${prefix}buy/${prefix}sell Bank Note]\n\n
-    Bronze: \`500$\`\n\n
-    Nikes: \`2.350$\`\n\n
-    Ferrari Daytona SP3: \`4.500.000$\`\n\n
-    Herrenhaus: \`5.975.000$\`
+    Bronze: \`500$\`\n[${prefix}buy/${prefix}sell Bronze]\n\n
+    Nikes: \`2.350$\`\n[${prefix}buy/${prefix}sell Nikes]\n\n
+    Ferrari Daytona SP3: \`4.500.000$\`\n[${prefix}buy/${prefix}sell car]\n\n
+    Herrenhaus: \`5.975.000$\`\n[${prefix}buy/${prefix}sell house]
 
     `)
             .setColor("RANDOM")
